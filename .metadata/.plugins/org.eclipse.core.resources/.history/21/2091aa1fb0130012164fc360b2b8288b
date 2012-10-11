@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.content.Intent;
+//import android.content.Intent;
 
 public class MainActivity extends Activity {
 
@@ -35,21 +35,19 @@ public class MainActivity extends Activity {
            noblue.show();
         }
         
-	    if (mBluetoothAdapter!=null){
-	        int REQUEST_ENABLE_BT=1;
-	        if (!mBluetoothAdapter.isEnabled()) {
-	        	
-	            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-	            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-	        }
-	    }
+        /*int REQUEST_ENABLE_BT=1;
+        if (!mBluetoothAdapter.isEnabled()) {
+        	
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }*/
         
         final Button send=(Button) findViewById(R.id.sendbutton);
         send.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Context sendcontext=getApplicationContext();
-		        CharSequence sendmessage="Polling rate sent to device.";
+		        CharSequence sendmessage="Polling rate sent to device";
 		        int toastlength=Toast.LENGTH_LONG;
 		          
 		        Toast noblue=Toast.makeText(sendcontext, sendmessage, toastlength);
@@ -62,7 +60,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Context viewcontext=getApplicationContext();
-		        CharSequence viewmessage="Data set displayed in textbox below (WIP).";
+		        CharSequence viewmessage="Data set displayed in textbox below (WIP)";
 		        int toastlength=Toast.LENGTH_LONG;
 		          
 		        Toast noblue=Toast.makeText(viewcontext, viewmessage, toastlength);

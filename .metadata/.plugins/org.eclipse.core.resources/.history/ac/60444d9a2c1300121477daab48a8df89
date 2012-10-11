@@ -1,0 +1,49 @@
+package com.example.hab_lds_android;
+
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main2);
+        
+        Spinner select=(Spinner) findViewById(R.id.spinner1);
+        
+        ArrayAdapter <CharSequence> adapter= ArrayAdapter.createFromResource(this, R.array.polls, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        select.setAdapter(adapter);
+        
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (mBluetoothAdapter == null) {
+           Context bluecontect=getApplicationContext();
+           CharSequence blueerror="Device does not support Bluetooth.";
+           int toastlength=Toast.LENGTH_LONG;
+           
+           Toast noblue=Toast.makeText(bluecontect, blueerror, toastlength);
+           noblue.show();
+        }
+        
+        const int REQUEST_ENABLE_BT=1;
+        if (!mBluetoothAdapter.isEnabled()) {
+        	
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+}

@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
            noblue.show();
         }
         
-	    if (mBluetoothAdapter!=null){
+	    if (mBluetoothAdapter!=NULL){
 	        int REQUEST_ENABLE_BT=1;
 	        if (!mBluetoothAdapter.isEnabled()) {
 	        	

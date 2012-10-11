@@ -35,14 +35,12 @@ public class MainActivity extends Activity {
            noblue.show();
         }
         
-	    if (mBluetoothAdapter!=null){
-	        int REQUEST_ENABLE_BT=1;
-	        if (!mBluetoothAdapter.isEnabled()) {
-	        	
-	            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-	            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-	        }
-	    }
+        int REQUEST_ENABLE_BT=1;
+        if (!mBluetoothAdapter.isEnabled()) {
+        	
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }
         
         final Button send=(Button) findViewById(R.id.sendbutton);
         send.setOnClickListener(new View.OnClickListener() {
